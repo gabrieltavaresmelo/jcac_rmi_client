@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<?import layouttests.migfxml.sample1.*?>
+<?import javafx.scene.image.ImageView?>
+
+<MigPane id="rootPane"
+	prefHeight="690.0" 
+	prefWidth="890.0"
+	fx:controller="br.com.gtmf.window.MainLayoutWindow" 
+	styleClass="main-panel"
+	layout="fillx, gap unrel rel" 
+	cols="" 
+	rows="[fill][fill][fill][fill]" 
+	xmlns:fx="http://javafx.com/fxml">
+
+
+	<MigPane id="topPane" 
+		styleClass="top-panel"
+		layout="fillx, insets 0" 
+		cols="" 
+		rows="[fill,grow][fill,grow]" 
+		MigPane.cc="dock north, grow"
+	>
+		<MenuBar MigPane.cc="spanx, growx, wrap" styleClass="menu-bar" >
+			<menus>
+				<Menu mnemonicParsing="false" text="Arquivo" >
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#handleStartGame"
+							text="Novo Jogo" fx:id="mniStartGame" >
+							<accelerator>
+								<KeyCodeCombination alt="UP" code="N" control="ANY"
+									meta="UP" shift="UP" shortcut="UP" />
+							</accelerator>
+						</MenuItem>
+						<MenuItem mnemonicParsing="false" onAction="#handleRiddle"
+							text="Adivinhar" fx:id="mniRiddle" >
+							<accelerator>
+								<KeyCodeCombination alt="UP" code="F" control="ANY"
+									meta="UP" shift="UP" shortcut="UP" />
+							</accelerator>
+						</MenuItem>
+						<SeparatorMenuItem mnemonicParsing="false" />
+						<MenuItem mnemonicParsing="false" onAction="#handleExit"
+							text="Sair">
+							<accelerator>
+								<KeyCodeCombination alt="ANY" code="F4"
+									control="UP" meta="UP" shift="UP" shortcut="UP" />
+							</accelerator>
+						</MenuItem>
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Ajuda">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#handleAbout"
+							text="Sobre" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		
+		<MigPane id="toolbarPane" 
+			styleClass="top-panel"
+			layout="insets 10 10 10 10" 
+			cols="" 
+			rows="[fill][fill]" 
+			MigPane.cc="spanx, growx"
+		>
+
+			<Label text="[Cliente] Jogo Cara-a-Cara" styleClass="title-message" MigPane.cc="growx, gaptop 10, gapbottom 10, wrap" />
+			
+			<Label text="Nome" styleClass="toolbar-message" MigPane.cc="align center, spanx 3, split 3" /> 
+			<TextField fx:id="tfUsername" text="Username" onAction="#turnOn" MigPane.cc="growx, height 25:25:35, gapleft 6, gapright 20" />
+			
+			<Label text="IP Servidor" styleClass="toolbar-message" MigPane.cc="align center, spanx 3, split 3" /> 			
+			<TextField fx:id="tfIpServer" text="localhost" onAction="#turnOn" MigPane.cc="growx, height 25:25:35, gapleft 6, gapright 20" />
+			 			  
+	    	<ToggleButton fx:id="tbStatus" text="Conectar" onAction="#tbStatusItemChange" MigPane.cc="width 120, height 25:25:35, align center, gapleft 20, gapright 20" />
+			
+	    </MigPane>
+	</MigPane>
+
+	<MigPane id="footerPane" 
+		styleClass="top-panel"
+		layout="fillx, insets 0"
+		cols="" 
+		rows="" 
+		MigPane.cc="dock south, grow"
+	>
+		<Label fx:id="lbStatus" text="Desconectado" styleClass="footer-message" MigPane.cc="growx, wrap, gaptop 10, gapbottom 10" />
+	    
+	</MigPane>
+
+	<MigPane id="body1Pane" 
+		styleClass="main-panel"
+		layout="fill" 
+		cols="[][][][][][][][]" 
+		rows="[][][][][][][]" 
+		MigPane.cc="width 250:300:350, dock center, growy"
+	>
+		
+		<ImageView fx:id="img01"  />
+		<ImageView fx:id="img02"  />
+		<ImageView fx:id="img03"  />
+		<ImageView fx:id="img04"  />
+		<ImageView fx:id="img05"  />
+		<ImageView fx:id="img06"  />
+		<ImageView fx:id="img07"  />
+		<ImageView fx:id="img08" MigPane.cc="align center,growx, wrap" />
+		<ImageView fx:id="img09"  />
+		<ImageView fx:id="img10"  />
+		<ImageView fx:id="img11"  />
+		<ImageView fx:id="img12" />
+		<ImageView fx:id="img13"  />
+		<ImageView fx:id="img14"  />
+		<ImageView fx:id="img15"  />
+		<ImageView fx:id="img16" MigPane.cc="align center,growx, wrap"  />
+		<ImageView fx:id="img17"  />
+		<ImageView fx:id="img18"  />
+		<ImageView fx:id="img19"  />
+		<ImageView fx:id="img20"  />
+		<ImageView fx:id="img21"  />
+		<ImageView fx:id="img22"  />
+		<ImageView fx:id="img23" styleClass="my-choose-image" />
+		<ImageView fx:id="img24" MigPane.cc="align center,growx, wrap" />
+		
+	    <Label fx:id="lbQuestionEnemy" text="Pergunta do Adversario .." styleClass="body01-message" MigPane.cc="spanx8, align center,growx, wrap" />
+        
+        <RadioButton fx:id="rbYes" text="Sim" styleClass="body01-message" MigPane.cc="align center, spanx 8, split 3" />
+        <RadioButton fx:id="rbNo" text="Não" styleClass="body01-message" MigPane.cc="gapleft 20" />
+        <Button fx:id="btSendAnswer" text="Enviar" onAction="#sendAnswer" MigPane.cc="width 100, height 30:30:50, gapleft 20, gaptop 10, gapbottom 10, wrap" />
+        
+        <Label fx:id="lbQuestionMine" text="Pergunta:" styleClass="body01-message" MigPane.cc="spanx 2, align center,growx" />        
+	    <TextField fx:id="tfSendQuestion" onAction="#sendQuestion" MigPane.cc="spanx 4, growx, height 25:25:35" />	    
+		<Button fx:id="btSendQuestion" text="Enviar" onAction="#sendQuestion" MigPane.cc="spanx 2, width 100, height 30:30:50, align center, gaptop 10, gapbottom 10, wrap" />
+	
+		<Label fx:id="lbAnswer" text="Resposta:" styleClass="body01-message" MigPane.cc="spanx 2, align center,growx" />
+		<Label fx:id="lbAnswerValue" text="" styleClass="body01-message" MigPane.cc="spanx 6, align center,growx" />
+
+	</MigPane>
+
+	<MigPane id="body2Pane" 
+		styleClass="main-panel"
+		layout="fill" 
+		cols="" 
+		rows="[fill][fill][][]" 
+		MigPane.cc="width 250:300:350, dock east, growy"
+	>
+	    
+	    <ListView fx:id="lvUsersOn" MigPane.cc="growx, wrap, height 100:170:350" />
+	    
+		<TextArea fx:id="taHistory" editable="false" wrapText="true"
+			styleClass="body2-message" MigPane.cc="growx, wrap, height 100:200:350" />
+			
+		<TextField fx:id="tfSendChat" onAction="#sendChat" MigPane.cc="growx, wrap, height 25:25:35" />
+		
+		<Button fx:id="btSendChat" text="Enviar" onAction="#sendChat" MigPane.cc="width 100, height 30:30:50, align right, gaptop 10, gapbottom 10" />
+	    
+	</MigPane>
+</MigPane>
